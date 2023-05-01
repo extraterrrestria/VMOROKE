@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="400.0" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.vmoroke.RegistrationController">
+   <children>
+      <Button layoutX="227.0" layoutY="313.0" mnemonicParsing="false" onAction="#onRegister" text="Зарегистрироваться" />
+      <ComboBox fx:id="userRole" layoutX="219.0" layoutY="61.0" prefWidth="150.0" promptText="Ваша роль">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ComboBox>
+      <PasswordField layoutX="219.0" layoutY="208.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField layoutX="219.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="274.0" layoutY="96.0" text="Логин" />
+      <Label layoutX="274.0" layoutY="174.0" text="Пароль" />
+      <Label layoutX="254.0" layoutY="241.0" text="Потверждение" />
+      <PasswordField layoutX="221.0" layoutY="269.0" />
+   </children>
+</AnchorPane>
