@@ -8,37 +8,57 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="400.0" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.vmoroke.LoginController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.vmoroke.LoginController">
    <children>
-      <ImageView fitHeight="138.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane prefHeight="52.0" prefWidth="500.0">
+         <children>
+            <Button fx:id="logback" layoutX="25.0" layoutY="16.0" mnemonicParsing="false" onAction="#onLogBackClick" style="-fx-focus-color: #d7a3e6; -fx-background-radius: 7;" text="Назад">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="148.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Steam_icon_logo.png" />
+            <Image url="@../../../vmoroke.gif" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" ellipsisString="" text="Введите имя аккаунта" textFill="RED">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="login" onAction="#test" />
-      <Label text="Введите пароль">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
-      </Label>
-      <PasswordField fx:id="password">
-         <VBox.margin>
-            <Insets bottom="20.0" top="10.0" />
-         </VBox.margin>
-      </PasswordField>
-      <Button mnemonicParsing="false" onAction="#onLoginButtonClick" text="Войти">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
-      </Button>
-      <Hyperlink onAction="#onRegisterClick" text="Регистрация" />
+      <AnchorPane prefHeight="207.0" prefWidth="500.0">
+         <children>
+            <Label alignment="CENTER" ellipsisString="" layoutX="169.0" layoutY="30.0" prefHeight="25.0" prefWidth="161.0" text="Логин">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="login" layoutX="105.0" layoutY="72.0" onAction="#test" prefHeight="25.0" prefWidth="290.0" promptText="Введите логин" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" />
+            <Label layoutX="224.0" layoutY="115.0" prefHeight="20.0" prefWidth="52.0" text="Пароль" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="224.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="105.0" layoutY="154.0" prefHeight="25.0" prefWidth="290.0" promptText="Введите пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="108.0" prefWidth="500.0">
+         <children>
+            <Button layoutX="210.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="44.0" prefWidth="80.0" style="-fx-focus-color: #d7a3e6; -fx-color: #ecd5ef; -fx-background-radius: 15;" text="Войти" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Button>
+            <Hyperlink layoutX="177.0" layoutY="64.0" onAction="#onRegisterClick" prefHeight="36.0" prefWidth="147.0" text="Зарегистрироваться" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="176.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
    </children>
 </VBox>

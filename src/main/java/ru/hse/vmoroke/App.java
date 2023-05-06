@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -16,10 +17,11 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         hostServices = getHostServices();
         mainStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Vmoroke");
         stage.setScene(scene);
+        stage.getIcons().add(new Image("vmlogo.png"));
         stage.show();
         getHostServices();
     }

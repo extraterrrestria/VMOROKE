@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,10 +22,18 @@ public class RegistrationController  implements Initializable {
 
     @FXML
     private ComboBox<String> userRole;
+    @FXML
+    private Label exc_message;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private PasswordField repassword;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> langs = FXCollections.observableArrayList("Пользователь", "Администратор");
+        ObservableList<String> langs = FXCollections.observableArrayList("Пользователь", "Аналитик", "Администратор");
         userRole.setItems(langs);
     }
     @FXML
@@ -33,4 +44,5 @@ public class RegistrationController  implements Initializable {
         stage.setScene(scene);
 
     }
+
 }

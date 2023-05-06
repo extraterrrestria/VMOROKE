@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="linear-grad-to-bottom-left" stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.vmoroke.BasePageController">
+   <children>
+      <VBox prefHeight="480.0" prefWidth="369.0">
+         <children>
+            <AnchorPane style="-fx-background-color: transparent;">
+               <children>
+                  <VBox layoutX="15.0" layoutY="25.0" prefHeight="259.0" prefWidth="327.0" style="-fx-background-color: transparent; -fx-background-radius: 25;">
+                     <children>
+                        <AnchorPane />
+                        <ImageView fitHeight="136.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../vmoroke.gif" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="emojiresponse" layoutX="10.0" layoutY="19.0" prefHeight="25.0" prefWidth="315.0">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="emojiresponse2" layoutX="55.0" layoutY="44.0" prefHeight="25.0" prefWidth="258.0" textAlignment="RIGHT">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <VBox layoutX="14.0" layoutY="-10.0" maxWidth="350.0" minWidth="350.0" prefHeight="177.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 25;" styleClass="container" stylesheets="@../../../styles.css">
+                     <children>
+                        <AnchorPane prefHeight="151.0" prefWidth="353.0">
+                           <children>
+                              <Label layoutX="17.0" layoutY="7.0" prefHeight="136.0" prefWidth="335.0" style="-fx-background-radius: 25;" text="Приложение помогает быстро проанализировать &#10;&#10;с помощью самого информативного &#10;источника - социальных сетей!&#10;&#10;   " textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="36.0" prefHeight="25.0" prefWidth="315.0" text="эмоциональное состояние человека">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="basereg" layoutX="79.0" layoutY="110.0" mnemonicParsing="false" onAction="#OnBRegButtonClick" prefHeight="39.0" prefWidth="193.0" style="-fx-focus-color: #d7a3e6; -fx-background-radius: 10;" text="Зарегистрироваться">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <AnchorPane prefHeight="480.0" prefWidth="271.0" style="-fx-background-radius: 150;">
+         <children>
+            <VBox layoutX="10.0" layoutY="23.0" prefHeight="436.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 25;" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="23.0">
+               <children>
+                  <AnchorPane prefHeight="59.0" prefWidth="251.0">
+                     <children>
+                        <Label layoutX="63.0" layoutY="20.0" text="Как настроение?">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children></VBox>
+            <AnchorPane layoutX="98.0" layoutY="378.0">
+               <children>
+                  <Button fx:id="baselog" mnemonicParsing="false" onAction="#onLogButtonClick" prefHeight="39.0" prefWidth="80.0" style="-fx-focus-color: #d7a3e6; -fx-color: #ecd5ef; -fx-background-radius: 10;" styleClass="linear-grad-button" stylesheets="@../../../styles.css" text="Войти">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <GridPane layoutX="37.0" layoutY="86.0" prefHeight="213.0" prefWidth="213.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="love" alignment="CENTER" mnemonicParsing="false" onAction="#LoveClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/love.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="happy" mnemonicParsing="false" onAction="#HappyClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/happy.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cool" mnemonicParsing="false" onAction="#CoolClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/cool.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="thoughtful" mnemonicParsing="false" onAction="#ThoughtfulClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" onDragDetected="#ThoughtfulClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/thoughtful.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="crying" mnemonicParsing="false" onAction="#CryingClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/crying.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="weird" mnemonicParsing="false" onAction="#WeirdClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/weird.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="money" mnemonicParsing="false" onAction="#MoneyClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/money.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="angry" mnemonicParsing="false" onAction="#AngryClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/angry.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="shocked" mnemonicParsing="false" onAction="#ShockedClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 15; -fx-focus-color: #d7a3e6; -fx-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/shocked.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

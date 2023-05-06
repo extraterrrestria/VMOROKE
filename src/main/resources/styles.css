@@ -1,0 +1,7 @@
+.linear-grad-to-bottom-left{
+    -fx-background-color: linear-gradient(to bottom left, #ffd5a8, #f8c4e2, #e5b7ff, #bbc4ff, #cbe9c2);
+}
+
+.linear-grad-button{
+    -fx-background-color: linear-gradient(to right, #f8c4e2, #bbc4ff);
+}
