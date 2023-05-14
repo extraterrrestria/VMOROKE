@@ -22,10 +22,10 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ComboBox>
-      <AnchorPane layoutX="141.0" layoutY="96.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="96.0">
+      <AnchorPane layoutX="141.0" layoutY="75.0" prefHeight="221.0" prefWidth="340.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="75.0">
          <children>
-            <PasswordField layoutX="70.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Придумайте пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" />
-            <TextField layoutY="34.0" prefHeight="26.0" prefWidth="160.0" promptText="Придумайте логин" style="-fx-background-radius: 7;" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="34.0" />
+            <PasswordField fx:id="password" layoutX="70.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Придумайте пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" />
+            <TextField fx:id="username" layoutY="34.0" prefHeight="25.0" prefWidth="200.0" promptText="Придумайте логин" style="-fx-background-radius: 7;" AnchorPane.bottomAnchor="162.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="34.0" />
             <Label layoutX="130.0" layoutY="5.0" prefHeight="18.0" prefWidth="41.0" text="Логин" AnchorPane.bottomAnchor="177.0" AnchorPane.leftAnchor="149.5" AnchorPane.rightAnchor="149.5" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="Arial" size="14.0" />
@@ -38,7 +38,7 @@
                <font>
                   <Font name="Arial" size="14.0" />
                </font></Label>
-            <PasswordField layoutX="70.0" layoutY="166.0" prefHeight="25.0" prefWidth="200.0" promptText="Повторите пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="70.0" />
+            <PasswordField fx:id="repassword" layoutX="70.0" layoutY="166.0" prefHeight="25.0" prefWidth="200.0" promptText="Повторите пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="70.0" />
          </children>
       </AnchorPane>
       <Button layoutX="184.0" layoutY="324.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-radius: 10; -fx-focus-color: #d7a3e6;" text="Назад">
