@@ -160,6 +160,8 @@ public class RegistrationController implements Initializable {
             showAlert("Проверка роли", "Выберите роль");
             return;
         }
+        // Сохранение логина и пароля
+        RegistrationDataSaver.saveRegistrationData(login, passwordValue);
 
         p.setLogin(login);
         p.setPassword(passwordValue);

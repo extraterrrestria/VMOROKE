@@ -5,14 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab76689-8a2b-4d5b-8bd5-7e4eaec52002" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/BasePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/BasePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/Vk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/Vk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/admin_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/admin_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/analytic_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/analytic_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/base_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/base_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/changepass.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/changepass.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg3.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/user_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/user_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +41,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -47,15 +67,20 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-20.0.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="ru.hse.vmoroke.App" />
-      <module name="VMOROKE" />
+      <module name="VMOROKE-main" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;\D:\javafx-sdk-20.0.1\lib\javafx-sdk-15.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ru.hse.vmoroke.*" />
@@ -93,5 +118,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RegistrationController_java$App.ic" NAME="App Coverage Results" MODIFIED="1684422553331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ru.hse.vmoroke.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane maxHeight="400.0" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: 0000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.vmoroke.RegistrationController">
    <children>
       <Button layoutX="302.0" layoutY="324.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="36.0" prefWidth="155.0" style="-fx-focus-color: #d7a3e6; -fx-color: #ecd5ef; -fx-background-radius: 10;" text="Продолжить" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="324.0">
