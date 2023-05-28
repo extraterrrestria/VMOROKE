@@ -151,7 +151,7 @@ public class RegistrationController implements Initializable {
             return;
         }
 
-        if (login.isEmpty()) {
+        if (checkEmpty(login)) {
             showAlert("Проверка логина", "Введите логин");
             return;
         }
@@ -160,6 +160,7 @@ public class RegistrationController implements Initializable {
             showAlert("Проверка роли", "Выберите роль");
             return;
         }
+
         // Сохранение логина и пароля
         RegistrationDataSaver.saveRegistrationData(login, passwordValue);
 
@@ -202,32 +203,36 @@ public class RegistrationController implements Initializable {
         p.setAnswer(_answer);
     }
 
+    boolean checkEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
     @FXML
     void onRegisterStep2(ActionEvent event) throws IOException {
-//        if (firstName.getText().isEmpty()) {
-//            showAlert("Проверка имени", "Введите имя");
-//            return;
-//        }
-//
-//        if (lastName.getText().isEmpty()) {
-//            showAlert("Проверка фамилии", "Введите фамилию");
-//            return;
-//        }
-//
-//        if (middleName.getText().isEmpty()) {
-//            showAlert("Проверка отчества", "Введите отчество");
-//            return;
-//        }
-//
-//        if (email.getText() == null) {
-//            showAlert("Проверка email", "Введите email");
-//            return;
-//        }
-//
-//        if (birthday.getValue() == null) {
-//            showAlert("Проверка даты рождения", "Введите дату рождения");
-//            return;
-//        }
+        if (checkEmpty(firstName.getText())) {
+            showAlert("Проверка имени", "Введите имя");
+            return;
+        }
+
+        if (checkEmpty(lastName.getText())) {
+            showAlert("Проверка фамилии", "Введите фамилию");
+            return;
+        }
+
+        if (checkEmpty(middleName.getText())) {
+            showAlert("Проверка отчества", "Введите отчество");
+            return;
+        }
+
+        if (checkEmpty(email.getText())) {
+            showAlert("Проверка email", "Введите email");
+            return;
+        }
+
+        if (birthday.getValue() == null) {
+            showAlert("Проверка даты рождения", "Введите дату рождения");
+            return;
+        }
 
         saveStep2();
 
@@ -235,15 +240,15 @@ public class RegistrationController implements Initializable {
     }
 
     public void onRegisterStep3(ActionEvent actionEvent) throws IOException {
-//        if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
-//            showAlert("Проверка выбора вопроса", "Выберите вопрос");
-//            return;
-//        }
-//
-//        if (answer.getText().isEmpty()) {
-//            showAlert("Проверка ответа", "Введите ответ");
-//            return;
-//        }
+        if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
+            showAlert("Проверка выбора вопроса", "Выберите вопрос");
+            return;
+        }
+
+        if (checkEmpty(answer.getText())) {
+            showAlert("Проверка ответа", "Введите ответ");
+            return;
+        }
 
         saveStep3();
 
@@ -264,7 +269,7 @@ public class RegistrationController implements Initializable {
         showView("reg2.fxml");
     }
 
-    public void clickCheckAgree(ActionEvent actionEvent) {
+    public void clickChecAgree(ActionEvent actionEvent) {
         if (checkBoxAgree.isSelected()) {
             finishReg.setDisable(false);
         }
