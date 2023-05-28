@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab76689-8a2b-4d5b-8bd5-7e4eaec52002" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/reg3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Admin/Documents/Fool/Java/emotional/OurProject/VMOROKE"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
