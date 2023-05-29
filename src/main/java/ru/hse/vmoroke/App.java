@@ -19,6 +19,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         FilesDirectory.filesDirectoryName();
         System.out.println(FilesDirectory.getFileName());
+        FilesDirectory.ExistenceOfFiles(FilesDirectory.getFileName());
         hostServices = getHostServices();
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));

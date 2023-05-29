@@ -1,6 +1,7 @@
 package ru.hse.vmoroke;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class FilesDirectory {
@@ -8,9 +9,14 @@ public class FilesDirectory {
     public static String getFileName(){
         return fileVar;
     }
-    public static void CheckExistenceOfFiles(String path){
-        File file = new File(path, "Logins and passwords");
+    public static void ExistenceOfFiles(String path){
 
+        try {
+            new File(path+"\\\\Logins and passwords.txt").createNewFile();
+            new File(path+"\\\\Login_Data.txt").createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void filesDirectoryName (){
