@@ -39,13 +39,11 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="username" layoutX="25.0" layoutY="14.0" />
-                        <TextField fx:id="password" layoutX="25.0" layoutY="50.0" />
                         <TextField fx:id="firstName" layoutX="25.0" layoutY="85.0" />
                         <TextField fx:id="lastName" layoutX="25.0" layoutY="124.0" />
                         <TextField fx:id="middleName" layoutX="25.0" layoutY="158.0" />
                         <TextField fx:id="birthday" layoutX="25.0" layoutY="194.0" />
                         <TextField fx:id="email" layoutX="25.0" layoutY="227.0" />
-                        <TextField fx:id="secretQuestion" layoutX="25.0" layoutY="260.0" />
                      </children>
                   </AnchorPane>
                </children></HBox>

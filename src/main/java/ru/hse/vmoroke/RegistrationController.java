@@ -12,7 +12,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -246,6 +248,11 @@ public class RegistrationController implements Initializable {
 //        }
 
         saveStep3();
+        try (PrintWriter writer_data = new PrintWriter(new FileWriter("Login_Data.txt", true))) {
+            writer_data.println(p.getLogin().toString() + " " + p.getRole().toString() + " " + p.getLastName().toString() + " " + p.getFirstName().toString() + " " + p.getMiddleName().toString() +  " " + p.getBirthday().toString() + " " + p.getEmail().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

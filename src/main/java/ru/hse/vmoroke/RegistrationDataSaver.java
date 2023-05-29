@@ -11,16 +11,16 @@ public class RegistrationDataSaver {
         String hashedPassword = hashPassword(password);
 
         try (PrintWriter writer = new PrintWriter(new FileWriter("Logins and passwords.txt", true))) {
-            writer.println("Login: " + login);
-            writer.println("Hashed Password: " + hashedPassword);
-            writer.println();
+            writer.println(login + " " + hashedPassword);
         } catch (IOException e) {
             e.printStackTrace();
             // Обработка исключения по вашему усмотрению
         }
+
     }
 
-    private static String hashPassword(String password) {
+
+    public static String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedBytes = md.digest(password.getBytes());
