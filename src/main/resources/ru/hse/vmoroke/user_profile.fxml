@@ -3,11 +3,11 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -38,12 +38,36 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="username" layoutX="25.0" layoutY="14.0" />
-                        <TextField fx:id="firstName" layoutX="25.0" layoutY="85.0" />
-                        <TextField fx:id="lastName" layoutX="25.0" layoutY="124.0" />
-                        <TextField fx:id="middleName" layoutX="25.0" layoutY="158.0" />
-                        <TextField fx:id="birthday" layoutX="25.0" layoutY="194.0" />
-                        <TextField fx:id="email" layoutX="25.0" layoutY="227.0" />
+                        <Label fx:id="username_u" layoutX="11.0" layoutY="42.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="l_name_u" layoutX="11.0" layoutY="71.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="f_name_u" layoutX="11.0" layoutY="100.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="m_name_u" layoutX="11.0" layoutY="127.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="birth_u" layoutX="11.0" layoutY="164.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="email_u" layoutX="11.0" layoutY="201.0" onMouseMoved="#DataU" prefHeight="17.0" prefWidth="178.0">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children></HBox>

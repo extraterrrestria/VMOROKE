@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="VMOROKE:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab76689-8a2b-4d5b-8bd5-7e4eaec52002" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/VMOROKE_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/ContinueController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/FilesDirectory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/continue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_Data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logins and passwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationDataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationDataSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/admin_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/admin_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/analytic_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/analytic_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/user_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/hse/vmoroke/user_profile.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +61,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-20.0.1" />
@@ -93,6 +116,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/ContinueController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/ContinueController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/ContinueController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RegistrationController_java$App.ic" NAME="App Coverage Results" MODIFIED="1684422553331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

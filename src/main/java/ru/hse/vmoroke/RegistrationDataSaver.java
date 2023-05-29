@@ -10,7 +10,7 @@ public class RegistrationDataSaver {
     public static void saveRegistrationData(String login, String password) {
         String hashedPassword = hashPassword(password);
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter("Logins and passwords.txt", true))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FilesDirectory.getFileName() + "Logins and passwords", true))) {
             writer.println(login + " " + hashedPassword);
         } catch (IOException e) {
             e.printStackTrace();

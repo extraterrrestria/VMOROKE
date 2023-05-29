@@ -35,6 +35,8 @@ public class RegistrationController implements Initializable {
     @FXML
     private Label exc_message;
     @FXML
+    private Button regback;
+    @FXML
     private TextField username;
     @FXML
     private PasswordField password;
@@ -248,7 +250,7 @@ public class RegistrationController implements Initializable {
 //        }
 
         saveStep3();
-        try (PrintWriter writer_data = new PrintWriter(new FileWriter("Login_Data.txt", true))) {
+        try (PrintWriter writer_data = new PrintWriter(new FileWriter(FilesDirectory.getFileName() + "Login_Data.txt", true))) {
             writer_data.println(p.getLogin().toString() + " " + p.getRole().toString() + " " + p.getLastName().toString() + " " + p.getFirstName().toString() + " " + p.getMiddleName().toString() +  " " + p.getBirthday().toString() + " " + p.getEmail().toString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -278,5 +280,12 @@ public class RegistrationController implements Initializable {
         else {
             finishReg.setDisable(true);
         }
+    }
+
+    public void onRegBackClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = App.mainStage;
+        stage.setScene(scene);
     }
 }
