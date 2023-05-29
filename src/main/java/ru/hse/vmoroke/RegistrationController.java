@@ -269,7 +269,7 @@ public class RegistrationController implements Initializable {
         showView("reg2.fxml");
     }
 
-    public void clickChecAgree(ActionEvent actionEvent) {
+    public void clickCheckAgree(ActionEvent actionEvent) {
         if (checkBoxAgree.isSelected()) {
             finishReg.setDisable(false);
         }
