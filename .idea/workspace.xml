@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ab76689-8a2b-4d5b-8bd5-7e4eaec52002" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="83db4daf-91ad-4765-988e-40ca53c37ca9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/FilesDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/FilesDirectory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationDataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationDataSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/hse/vmoroke/RegistrationController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/12/Desktop/HSE/Алгор/VMOROKE",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
   <component name="RunManager">
