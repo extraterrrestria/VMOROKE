@@ -62,6 +62,7 @@ public class ContinueController {
                 Stage stage1 = App.mainStage;
                 stage1.setTitle(LoginController.login_base);
                 stage1.setScene(scene1);
+                break;
 
             case ("Аналитик"):
                 FXMLLoader fxmlLoader2 = new FXMLLoader(App.class.getResource("analytic_profile.fxml"));
@@ -69,12 +70,15 @@ public class ContinueController {
                 Stage stage2 = App.mainStage;
                 stage2.setTitle(LoginController.login_base);
                 stage2.setScene(scene2);
+                break;
+
             case ("Администратор"):
                 FXMLLoader fxmlLoader3 = new FXMLLoader(App.class.getResource("admin_profile.fxml"));
                 Scene scene3 = new Scene(fxmlLoader3.load());
                 Stage stage3 = App.mainStage;
                 stage3.setTitle(LoginController.login_base);
                 stage3.setScene(scene3);
+                break;
         }
 
     }

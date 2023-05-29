@@ -27,9 +27,11 @@ public class MainController {
     private Vk vk;
 
     @FXML
-    void onVkButtonClick(ActionEvent event) throws Exception {
+    void onVkButtonClick() throws Exception {
+        System.out.println("1");
         vk = new Vk(App.hostServices, this);
         vk.authenticateStart();
+        System.out.println("2");
     }
 
     @FXML

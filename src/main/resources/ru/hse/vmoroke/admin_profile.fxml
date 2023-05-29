@@ -97,7 +97,7 @@
             <content>
               <AnchorPane>
                      <children>
-                        <Button layoutX="25.0" layoutY="37.0" mnemonicParsing="false" prefHeight="103.0" prefWidth="161.0" style="-fx-background-color: #bbc4ff; -fx-color: white; -fx-background-radius: 20;" text="Предоставить&#10;доступ к странице &#10;ВКонтакте" textAlignment="CENTER">
+                        <Button fx:id="vkButtonAd" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#onVkButtonClick" prefHeight="103.0" prefWidth="161.0" style="-fx-background-color: #bbc4ff; -fx-color: white; -fx-background-radius: 20;" text="Предоставить&#10;доступ к странице &#10;ВКонтакте" textAlignment="CENTER">
                            <font>
                               <Font name="Arial" size="16.0" />
                            </font>
