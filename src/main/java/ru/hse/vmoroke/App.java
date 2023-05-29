@@ -7,15 +7,31 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
+/**
+ * Основной класс приложения Vmoroke.
+ */
 public class App extends Application {
     public static Stage mainStage;
     public static HostServices hostServices;
+
+    /**
+     * Расчитывает частное двух чисел.
+     *
+     * @param divisible делимое
+     * @param divisor   делитель
+     * @return частное от деления
+     */
 
     public static double quotient(int divisible, int divisor){
         return (divisible*100)/divisor * 0.01;
     }
 
+    /**
+     * Находит максимальное значение среди нескольких чисел.
+     *
+     * @param d числа для сравнения
+     * @return максимальное значение
+     */
     public static int max(int ... d){
         int res = 0;
         for(int i = 0; i < d.length; i ++){
@@ -23,6 +39,13 @@ public class App extends Application {
         }
         return res;
     }
+
+    /**
+     * Определяет эмоциональный вердикт на основе предоставленного текста.
+     *
+     * @param text входной текст
+     * @return эмоциональный вердикт
+     */
 
     public static String verdict(String text){
         Emotions result = new Emotions(); //создаю экземпляр класса эмоций
@@ -66,6 +89,11 @@ public class App extends Application {
         getHostServices();
     }
 
+    /**
+     * вход в приложение.
+     *
+     * @param args аргументы командной строки
+     */
     public static void main(String[] args) {
     System.out.println(verdict("я молодец, что сделал это задание"));
     launch();

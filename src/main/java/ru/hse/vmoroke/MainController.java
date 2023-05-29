@@ -1,4 +1,3 @@
-
 package ru.hse.vmoroke;
 
 import javafx.event.ActionEvent;
@@ -10,6 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Контроллер для главного экрана приложения.
+ *
+ * @author user
+ */
 public class MainController {
     @FXML
     Button vkAuthButton;
@@ -22,16 +26,35 @@ public class MainController {
 
     private Vk vk;
 
+    /**
+     * Обработчик события нажатия кнопки "Авторизация ВКонтакте".
+     *
+     * @param event событие нажатия кнопки
+     * @throws Exception если возникла ошибка при выполнении операции
+     */
+
     @FXML
     void onVkButtonClick(ActionEvent event) throws Exception {
         vk = new Vk(App.hostServices, this);
         vk.authenticateStart();
     }
+    /**
+     * Обработчик события нажатия кнопки "Получить комментарии со стены ВКонтакте".
+     *
+     * @param event событие нажатия кнопки
+     * @throws Exception если возникла ошибка при выполнении операции
+     */
 
     @FXML
     void onVkDoWallClick(ActionEvent event) throws Exception {
         vk.processWallComments();
     }
+
+    /**
+     * Обработчик события нажатия кнопки "Выход из аккаунта".
+     *
+     * @throws IOException если возникла ошибка ввода-вывода при загрузке ресурсов
+     */
 
     @FXML
     void onUExitClick() throws IOException {

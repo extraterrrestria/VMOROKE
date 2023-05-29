@@ -25,7 +25,9 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-
+/**
+ * Класс для работы с VK .
+ */
 public class Vk implements HttpRequestHandler {
     private HostServices hostServices;
     private MainController mainController;
@@ -36,10 +38,22 @@ public class Vk implements HttpRequestHandler {
     private String code;
     private UserActor actor;
 
+    /**
+     * Конструктор класса Vk.
+     *
+     * @param hostServices    Сервисы хоста для открытия URL.
+     * @param mainController  Контроллер главного окна.
+     */
+
     Vk(HostServices hostServices, MainController mainController) {
         this.hostServices = hostServices;
         this.mainController = mainController;
     }
+    /**
+     * Запускает процесс аутентификации VK.
+     *
+     * @throws Exception В случае возникновения ошибки.
+     */
 
     public void authenticateStart() throws Exception {
         //https://oauth.vk.com/authorize?client_id=1&display=page&redirect_uri=http://example.com/callback&scope=friends&response_type=code&v=5.131
@@ -87,7 +101,11 @@ public class Vk implements HttpRequestHandler {
         mainController.vkAuthButton.setDisable(true);
         mainController.vkWallButton.setDisable(false);
     }
-
+    /**
+     * Обрабатывает комментарии со стены VK.
+     *
+     * @throws Exception В случае возникновения ошибки.
+     */
     public void processWallComments() throws Exception {
         //ClientResponse r = transportClient.get(uri.toString(), new Header[1]);
         //System.out.println(r.getContent());

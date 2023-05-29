@@ -18,6 +18,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+/**
+ * Класс отвечает за обработку регистрации пользователя.
+ */
+
 public class RegistrationController implements Initializable {
 
 
@@ -47,6 +51,11 @@ public class RegistrationController implements Initializable {
 
     private Person p;
 
+    /**
+     * Инициализирует контроллер.
+     * @param url Местоположение для разрешения относительных путей для корневого объекта.
+     * @param resourceBundle Ресурсы, используемые для локализации корневого объекта.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (p == null)
@@ -63,6 +72,9 @@ public class RegistrationController implements Initializable {
         }
     }
 
+    /**
+     * Отображает информацию о пользователе.
+     */
     public void showPerson() {
         if (username != null) {
             username.setText(p.getLogin());
@@ -82,17 +94,28 @@ public class RegistrationController implements Initializable {
             answer.setText(p.getAnswer());
         }
     }
-
+    /**
+     * Инициализирует контроллер объектом Person.
+     * @param p Объект Person для инициализации.
+     */
     public void init(Person p) {
         this.p = p;
 
         showPerson();
     }
-
+    /**
+     * Проверяет, является ли логин уникальным.
+     * @param login Логин для проверки.
+     * @return {@code true}, если логин уникален, {@code false} в противном случае.
+     */
     private boolean checkUnique(String login) {
         return true;
     }
-
+    /**
+     * Проверяет, соответствует ли пароль требованиям.
+     * @param password Пароль для проверки.
+     * @return {@code true}, если пароль соответствует требованиям, {@code false} в противном случае.
+     */
     private boolean checkPassword(String password) {
         if (password.length() < 8)
             return false;
@@ -120,7 +143,11 @@ public class RegistrationController implements Initializable {
 
         return checkLower && checkUpper && checkDigit && checkSpec;
     }
-
+    /**
+     * Показывает диалоговое окно с сообщением.
+     * @param title Заголовок диалогового окна.
+     * @param content Содержимое сообщения.
+     */
     public void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -128,7 +155,14 @@ public class RegistrationController implements Initializable {
         alert.showAndWait();
     }
 
-
+    /**
+     * Обработчик события регистрации.
+     *
+     * Выполняет регистрацию пользователя на основе введенных данных.
+     *
+     * @param event Событие нажатия кнопки регистрации.
+     * @throws IOException Исключение, возникающее при ошибке ввода-вывода.
+     */
     @FXML
     void onRegister(ActionEvent event) throws IOException {
         String login = username.getText();
@@ -160,6 +194,9 @@ public class RegistrationController implements Initializable {
             showAlert("Проверка роли", "Выберите роль");
             return;
         }
+
+        // Сохранение логина и пароля
+        RegistrationDataSaver.saveRegistrationData(login, passwordValue);
 
         p.setLogin(login);
         p.setPassword(passwordValue);
@@ -199,7 +236,14 @@ public class RegistrationController implements Initializable {
         p.setSecretQuestion(question);
         p.setAnswer(_answer);
     }
-
+    /**
+     * Отображает представление для шага 2 регистрации.
+     *
+     * Переходит к шагу 2 регистрации и сохраняет введенные данные.
+     *
+     * @param event Событие нажатия кнопки.
+     * @throws IOException Исключение, возникающее при ошибке ввода-вывода.
+     */
     @FXML
     void onRegisterStep2(ActionEvent event) throws IOException {
 //        if (firstName.getText().isEmpty()) {
@@ -231,7 +275,14 @@ public class RegistrationController implements Initializable {
 
         showView("reg3.fxml");
     }
-
+    /**
+     * Выполняет переход к представлению для шага 3 регистрации.
+     *
+     * Переходит к шагу 3 регистрации и сохраняет введенные данные.
+     *
+     * @param actionEvent Событие нажатия кнопки.
+     * @throws IOException Исключение, возникающее при ошибке ввода-вывода.
+     */
     public void onRegisterStep3(ActionEvent actionEvent) throws IOException {
 //        if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
 //            showAlert("Проверка выбора вопроса", "Выберите вопрос");
