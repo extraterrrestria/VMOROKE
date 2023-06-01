@@ -39,9 +39,10 @@
                   <Font name="Arial" size="14.0" />
                </font></Label>
             <PasswordField fx:id="repassword" layoutX="70.0" layoutY="166.0" prefHeight="25.0" prefWidth="200.0" promptText="Повторите пароль" style="-fx-background-radius: 7;" AnchorPane.leftAnchor="70.0" />
+            <Label layoutX="-27.0" layoutY="195.0" text="Пароль должен содержать минимум 8 символов,&#10;минимум один спец. символ #$%^&amp;*@!?, заглавные и строчные буквы&#10;и цифру " />
          </children>
       </AnchorPane>
-      <Button layoutX="184.0" layoutY="324.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" style="-fx-background-radius: 10; -fx-focus-color: #d7a3e6;" text="Назад">
+      <Button fx:id="regback" layoutX="184.0" layoutY="324.0" mnemonicParsing="false" onAction="#onRegBackClick" prefHeight="36.0" prefWidth="71.0" style="-fx-background-radius: 10; -fx-focus-color: #d7a3e6;" text="Назад">
          <font>
             <Font name="Arial" size="16.0" />
          </font>

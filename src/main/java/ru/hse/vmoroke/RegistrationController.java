@@ -12,7 +12,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -36,6 +38,8 @@ public class RegistrationController implements Initializable {
     private ComboBox<String> userRole;
     @FXML
     private Label exc_message;
+    @FXML
+    private Button regback;
     @FXML
     private TextField username;
     @FXML
@@ -185,7 +189,7 @@ public class RegistrationController implements Initializable {
             return;
         }
 
-        if (login.isEmpty()) {
+        if (checkEmpty(login)) {
             showAlert("Проверка логина", "Введите логин");
             return;
         }
@@ -236,6 +240,11 @@ public class RegistrationController implements Initializable {
         p.setSecretQuestion(question);
         p.setAnswer(_answer);
     }
+
+    boolean checkEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
     /**
      * Отображает представление для шага 2 регистрации.
      *
@@ -246,30 +255,30 @@ public class RegistrationController implements Initializable {
      */
     @FXML
     void onRegisterStep2(ActionEvent event) throws IOException {
-//        if (firstName.getText().isEmpty()) {
-//            showAlert("Проверка имени", "Введите имя");
-//            return;
-//        }
-//
-//        if (lastName.getText().isEmpty()) {
-//            showAlert("Проверка фамилии", "Введите фамилию");
-//            return;
-//        }
-//
-//        if (middleName.getText().isEmpty()) {
-//            showAlert("Проверка отчества", "Введите отчество");
-//            return;
-//        }
-//
-//        if (email.getText() == null) {
-//            showAlert("Проверка email", "Введите email");
-//            return;
-//        }
-//
-//        if (birthday.getValue() == null) {
-//            showAlert("Проверка даты рождения", "Введите дату рождения");
-//            return;
-//        }
+        if (checkEmpty(firstName.getText())) {
+            showAlert("Проверка имени", "Введите имя");
+            return;
+        }
+
+        if (checkEmpty(lastName.getText())) {
+            showAlert("Проверка фамилии", "Введите фамилию");
+            return;
+        }
+
+        if (checkEmpty(middleName.getText())) {
+            showAlert("Проверка отчества", "Введите отчество");
+            return;
+        }
+
+        if (checkEmpty(email.getText())) {
+            showAlert("Проверка email", "Введите email");
+            return;
+        }
+
+        if (birthday.getValue() == null) {
+            showAlert("Проверка даты рождения", "Введите дату рождения");
+            return;
+        }
 
         saveStep2();
 
@@ -284,17 +293,22 @@ public class RegistrationController implements Initializable {
      * @throws IOException Исключение, возникающее при ошибке ввода-вывода.
      */
     public void onRegisterStep3(ActionEvent actionEvent) throws IOException {
-//        if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
-//            showAlert("Проверка выбора вопроса", "Выберите вопрос");
-//            return;
-//        }
-//
-//        if (answer.getText().isEmpty()) {
-//            showAlert("Проверка ответа", "Введите ответ");
-//            return;
-//        }
+        if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
+            showAlert("Проверка выбора вопроса", "Выберите вопрос");
+            return;
+        }
+
+        if (checkEmpty(answer.getText())) {
+            showAlert("Проверка ответа", "Введите ответ");
+            return;
+        }
 
         saveStep3();
+        try (PrintWriter writer_data = new PrintWriter(new FileWriter(FilesDirectory.getFileName() + "Login_Data.txt", true))) {
+            writer_data.println(p.getLogin().toString() + " " + p.getRole().toString() + " " + p.getLastName().toString() + " " + p.getFirstName().toString() + " " + p.getMiddleName().toString() +  " " + p.getBirthday().toString() + " " + p.getEmail().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -320,5 +334,12 @@ public class RegistrationController implements Initializable {
         else {
             finishReg.setDisable(true);
         }
+    }
+
+    public void onRegBackClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = App.mainStage;
+        stage.setScene(scene);
     }
 }

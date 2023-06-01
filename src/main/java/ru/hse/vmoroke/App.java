@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.nio.file.Files;
 
 /**
  * Основной класс приложения Vmoroke.
@@ -78,6 +79,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        FilesDirectory.filesDirectoryName();
+        System.out.println(FilesDirectory.getFileName());
+        FilesDirectory.ExistenceOfFiles(FilesDirectory.getFileName());
         hostServices = getHostServices();
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
 /**
  * Класс для сохранения данных регистрации.
  */
@@ -18,10 +19,8 @@ public class RegistrationDataSaver {
     public static void saveRegistrationData(String login, String password) {
         String hashedPassword = hashPassword(password);
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter("Logins and passwords.txt", true))) {
-            writer.println("Login: " + login);
-            writer.println("Hashed Password: " + hashedPassword);
-            writer.println();
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FilesDirectory.getFileName() + "Logins and passwords.txt", true))) {
+            writer.println(login + " " + hashedPassword);
         } catch (IOException e) {
             e.printStackTrace();
             // Обработка исключения по вашему усмотрению
@@ -33,7 +32,7 @@ public class RegistrationDataSaver {
      * @param password Пароль для хэширования.
      * @return Хэшированный пароль в виде строки.
      */
-    private static String hashPassword(String password) {
+    static String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedBytes = md.digest(password.getBytes());
