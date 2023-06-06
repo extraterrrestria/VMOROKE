@@ -82,7 +82,6 @@ public class App extends Application {
         FilesDirectory.filesDirectoryName();
         System.out.println(FilesDirectory.getFileName());
         FilesDirectory.ExistenceOfFiles(FilesDirectory.getFileName());
-        Mail.sendMail("qwertauyuuiu@gmail.com","Тестовое сообщение", "subject");
         hostServices = getHostServices();
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));
