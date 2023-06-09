@@ -1,15 +1,17 @@
 package ru.hse.vmoroke;
 
+import com.vk.api.sdk.exceptions.ApiException;
+import com.vk.api.sdk.exceptions.ClientException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import static ru.hse.vmoroke.App.vk;
 
 public class BasePageController {
 
@@ -123,7 +125,26 @@ public class BasePageController {
         emojiresponse.setText("Жизнь слишком важна, ");
         emojiresponse2.setText("чтобы рассуждать о ней серьезно!");
     }
+    /*
+    private class VkThread extends Thread{
+        private String[] a;
+        public VkThread(String[] a ){
+            this.a = a;
+        }
+        @Override
+        public void run(){
+            try {
+                String[][] b = vk.getUsersGroups();
+                String[] d = vk.getUsersCommentsInGroupsArray(a);
+                for(String i:d){
+                    System.out.println(i);
+                }
 
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }*/
     /**
      * Обработчик нажатия кнопки "Зарегистрироваться".
      *
@@ -131,11 +152,11 @@ public class BasePageController {
      */
 
     @FXML
-    protected void OnBRegButtonClick() throws IOException{
+    protected void OnBRegButtonClick() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("registration.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = App.mainStage;
-        //   stage.setTitle(password.getText());
+        //stage.setTitle(password.getText());
         stage.setScene(scene);
     }
 

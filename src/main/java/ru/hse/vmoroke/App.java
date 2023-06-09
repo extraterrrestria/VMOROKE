@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import java.nio.file.Files;
+import ru.hse.vmoroke.vk.Vk;
 
 /**
  * Основной класс приложения Vmoroke.
@@ -14,6 +14,7 @@ import java.nio.file.Files;
 public class App extends Application {
     public static Stage mainStage;
     public static HostServices hostServices;
+    public static Vk vk;
 
     /**
      * Расчитывает частное двух чисел.
@@ -80,17 +81,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FilesDirectory.filesDirectoryName();
-        System.out.println(FilesDirectory.getFileName());
         FilesDirectory.ExistenceOfFiles(FilesDirectory.getFileName());
         hostServices = getHostServices();
         mainStage = stage;
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("base_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Vmoroke");
         stage.setScene(scene);
         stage.getIcons().add(new Image("vmlogo.png"));
         stage.show();
-        getHostServices();
     }
 
     /**
@@ -102,8 +102,11 @@ public class App extends Application {
     System.out.println(verdict("я молодец, что сделал это задание"));
     launch();
     }
+    @Override
+    public void stop(){
+        if (vk!=null) {
+            vk.stopServer();
+        }
+        }
 
-
-    //private static void handleRequest(HttpExchange exchange) throws IOException {
-    //}
 }

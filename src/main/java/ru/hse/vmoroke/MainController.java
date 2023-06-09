@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import ru.hse.vmoroke.vk.Vk;
 
 import java.io.IOException;
 
@@ -19,10 +20,10 @@ import java.io.IOException;
 
 public class MainController {
     @FXML
-    Button vkAuthButton;
+    public Button vkAuthButton;
 
     @FXML
-    Button vkWallButton;
+    public Button vkWallButton;
 
     @FXML
     private Button user_exit;
@@ -31,7 +32,7 @@ public class MainController {
     @FXML
     private Button analytic_exit;
 
-    private Vk vk;
+
 
     /**
      * Обработчик события нажатия кнопки "Авторизация ВКонтакте".
@@ -42,8 +43,8 @@ public class MainController {
     @FXML
     void onVkButtonClick() throws Exception {
         System.out.println("1");
-        vk = new Vk(App.hostServices, this);
-        vk.authenticateStart();
+        App.vk = new Vk(App.hostServices, this);
+        App.vk.authenticateStart();
         System.out.println("2");
     }
     /**
@@ -55,7 +56,7 @@ public class MainController {
 
     @FXML
     void onVkDoWallClick(ActionEvent event) throws Exception {
-        vk.processWallComments();
+        App.vk.processUsersWallComments();
     }
 
     /**
