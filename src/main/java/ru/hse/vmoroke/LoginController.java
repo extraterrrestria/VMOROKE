@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +23,8 @@ import java.util.regex.Pattern;
  * Контроллер для управления входом в систему.
  */
 public class LoginController {
-
+    final static int MAX_COUNT_ATTEMPT = 3;
+    private int currentAttempt = 0;
 
     @FXML
     private PasswordField password;
@@ -74,39 +77,59 @@ public class LoginController {
      */
     @FXML
     public void onLoginClick() throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(FilesDirectory.getFileName() + "Logins and passwords.txt"))) {
-            String line;
-
-            while ((line = br.readLine()) != null) {
-       /*         Pattern p = Pattern.compile("\s");
-                Matcher m = p.matcher(line);
-                if (m.matches()) {
-                    login_base =  m.group(1);
-                    h_pass_base = m.group(2);
-                    System.out.println(2);
-                } */
-                if (line.substring(0, line.indexOf(" ")).equals(login.getText())) {
-                    login_base = line.substring(0, line.indexOf(" "));
-                    h_pass_base = line.substring(line.indexOf(" ")+1);
-                    break;
-                }
+        String loginText = login.getText();
+        String pass = Util.hashPassword(password.getText());
+        List<Person> personList = PersonRepository.getInstance().getPersons();
+        Optional<Person> optionalPerson = personList.stream().
+                filter(t->t.getLogin().equals(loginText) && t.getPassword().equals(pass)).
+                findFirst();
+        login_base = loginText;
+        if (optionalPerson.isPresent()) {
+            if (optionalPerson.get().isBlocked()) {
+                Util.showAlert("Ошибка входа", "Вы заблокированы");
             }
-            if (!(login.getText().isBlank()) && (login.getText().equals(login_base))) {
-                Boolean check1 = password.getText().isBlank();
-                String pass = RegistrationDataSaver.hashPassword(password.getText());
-                Boolean check2 = pass.equals(h_pass_base);
+            else {
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("continue.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = App.mainStage;
+                stage.setScene(scene);
+            }
+        }
+        else {
+            if (personList.stream().anyMatch(t->t.getLogin().equals(loginText))) {
+                if (personList.stream().
+                        filter(t->t.getLogin().equals(loginText)).
+                        findFirst().get().isBlocked()) {
+                    Util.showAlert("Ошибка входа", "Вы заблокированы");
+                }
+                else {
+                    showAlert("Ошибка", "Неверный логин или пароль");
+                    currentAttempt++;
 
-                if (!check1 && check2) {
-//                        setLogin(login_base);
-                        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("continue.fxml"));
+                    if (currentAttempt == MAX_COUNT_ATTEMPT) {
+                        showAlert("Ошибка", "Количество попыток для входа достигло предела. Вы заблокированы)");
+                        Person person = personList.stream().filter(t -> t.getLogin().equals(loginText)).findFirst().get();
+
+                        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("secret_answer_view.fxml"));
                         Scene scene = new Scene(fxmlLoader.load());
+                        SecretAnswerController controller = fxmlLoader.getController();
+                        controller.setCurrentUser(person);
                         Stage stage = App.mainStage;
                         stage.setScene(scene);
                     }
                 }
-            }catch (IOException e) {
-            e.printStackTrace();
+            }
+            else {
+                showAlert("Ошибка", "Пользователь не найден");
+            }
         }
+    }
+
+    public void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(content);
+        alert.showAndWait();
     }
 
     /**

@@ -17,6 +17,7 @@ public class Person {
     private String email;
     private String secretQuestion;
     private String answer;
+    private boolean isBlocked;
 
     /**
      * Конструктор по умолчанию.
@@ -202,5 +203,13 @@ public class Person {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
     }
 }

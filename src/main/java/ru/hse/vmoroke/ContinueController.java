@@ -39,15 +39,14 @@ public class ContinueController {
             while ((line_datac = br3.readLine()) != null) {
 //                            Pattern p2 = Pattern.compile(" ");
 //                            Matcher m2 = p2.matcher(line_data);
-                String [] splitted_line= line_datac.split("\\s+") ;
-                if (splitted_line.length == 7 && splitted_line[0].equals(LoginController.login_base)) {
-                    role_c = splitted_line[1];
-                    lname_c = splitted_line[2];
-                    fname_c = splitted_line[3];
-                    mname_c = splitted_line[4];
-                    birth_c = splitted_line[5];
-                    email_c = splitted_line[6];
-                    System.out.println(4);
+                String [] splitted_line= line_datac.split(";") ;
+                if (splitted_line.length == 11 && splitted_line[0].equals(LoginController.login_base)) {
+                      role_c = splitted_line[2];
+                    lname_c = splitted_line[3];
+                    fname_c = splitted_line[4];
+                    mname_c = splitted_line[5];
+                    birth_c = splitted_line[6];
+                    email_c = splitted_line[7];
                     break;
                 }
             }

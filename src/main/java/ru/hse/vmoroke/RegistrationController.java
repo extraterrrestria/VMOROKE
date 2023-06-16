@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -113,51 +114,9 @@ public class RegistrationController implements Initializable {
      * @return {@code true}, если логин уникален, {@code false} в противном случае.
      */
     private boolean checkUnique(String login) {
-        return true;
+        return PersonRepository.getInstance().getPersons().stream().noneMatch(t -> t.getLogin().equals(login));
     }
-    /**
-     * Проверяет, соответствует ли пароль требованиям.
-     * @param password Пароль для проверки.
-     * @return {@code true}, если пароль соответствует требованиям, {@code false} в противном случае.
-     */
-    private boolean checkPassword(String password) {
-        if (password.length() < 8)
-            return false;
 
-        boolean checkLower = false;
-        boolean checkUpper = false;
-        boolean checkDigit = false;
-        boolean checkSpec = false;
-        String specChars = "#$%^&*@!?";
-
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
-                checkUpper = true;
-            }
-            if (Character.isLowerCase(password.charAt(i))) {
-                checkLower = true;
-            }
-            if (Character.isDigit(password.charAt(i))) {
-                checkDigit = true;
-            }
-            if (specChars.contains(password.charAt(i) + "")) {
-                checkSpec = true;
-            }
-        }
-
-        return checkLower && checkUpper && checkDigit && checkSpec;
-    }
-    /**
-     * Показывает диалоговое окно с сообщением.
-     * @param title Заголовок диалогового окна.
-     * @param content Содержимое сообщения.
-     */
-    public void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(content);
-        alert.showAndWait();
-    }
 
     /**
      * Обработчик события регистрации.
@@ -175,32 +134,29 @@ public class RegistrationController implements Initializable {
         String role = userRole.getValue();
 
         if (!checkUnique(login)) {
-            showAlert("", "Такой логин уже занят");
+            Util.showAlert("", "Такой логин уже занят");
             return;
         }
 
-        if (!checkPassword(passwordValue)) {
-            showAlert("Проверка пароля", "Пароль не соответсвует требованиям");
+        if (!Util.checkPassword(passwordValue)) {
+            Util.showAlert("Проверка пароля", "Пароль не соответсвует требованиям");
             return;
         }
 
         if (!passwordValue.equals(repasswordValue)) {
-            showAlert("Проверка пароля", "Пароли не совпадают");
+            Util.showAlert("Проверка пароля", "Пароли не совпадают");
             return;
         }
 
         if (checkEmpty(login)) {
-            showAlert("Проверка логина", "Введите логин");
+            Util.showAlert("Проверка логина", "Введите логин");
             return;
         }
 
         if (userRole.getSelectionModel().getSelectedIndex() == -1) {
-            showAlert("Проверка роли", "Выберите роль");
+            Util.showAlert("Проверка роли", "Выберите роль");
             return;
         }
-
-        // Сохранение логина и пароля
-        RegistrationDataSaver.saveRegistrationData(login, passwordValue);
 
         p.setLogin(login);
         p.setPassword(passwordValue);
@@ -256,27 +212,27 @@ public class RegistrationController implements Initializable {
     @FXML
     void onRegisterStep2(ActionEvent event) throws IOException {
         if (checkEmpty(firstName.getText())) {
-            showAlert("Проверка имени", "Введите имя");
+            Util.showAlert("Проверка имени", "Введите имя");
             return;
         }
 
         if (checkEmpty(lastName.getText())) {
-            showAlert("Проверка фамилии", "Введите фамилию");
+            Util.showAlert("Проверка фамилии", "Введите фамилию");
             return;
         }
 
         if (checkEmpty(middleName.getText())) {
-            showAlert("Проверка отчества", "Введите отчество");
+            Util.showAlert("Проверка отчества", "Введите отчество");
             return;
         }
 
         if (checkEmpty(email.getText())) {
-            showAlert("Проверка email", "Введите email");
+            Util.showAlert("Проверка email", "Введите email");
             return;
         }
 
         if (birthday.getValue() == null) {
-            showAlert("Проверка даты рождения", "Введите дату рождения");
+            Util.showAlert("Проверка даты рождения", "Введите дату рождения");
             return;
         }
 
@@ -294,21 +250,19 @@ public class RegistrationController implements Initializable {
      */
     public void onRegisterStep3(ActionEvent actionEvent) throws IOException {
         if (secretQuestion.getSelectionModel().getSelectedIndex() == -1) {
-            showAlert("Проверка выбора вопроса", "Выберите вопрос");
+            Util.showAlert("Проверка выбора вопроса", "Выберите вопрос");
             return;
         }
 
         if (checkEmpty(answer.getText())) {
-            showAlert("Проверка ответа", "Введите ответ");
+            Util.showAlert("Проверка ответа", "Введите ответ");
             return;
         }
 
         saveStep3();
-        try (PrintWriter writer_data = new PrintWriter(new FileWriter(FilesDirectory.getFileName() + "Login_Data.txt", true))) {
-            writer_data.println(p.getLogin().toString() + " " + p.getRole().toString() + " " + p.getLastName().toString() + " " + p.getFirstName().toString() + " " + p.getMiddleName().toString() +  " " + p.getBirthday().toString() + " " + p.getEmail().toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Сохранение логина и пароля
+        PersonRepository.getInstance().add(p);
+        PersonRepository.getInstance().save();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
