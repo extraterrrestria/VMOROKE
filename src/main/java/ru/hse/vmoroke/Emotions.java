@@ -1,6 +1,8 @@
 package ru.hse.vmoroke;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Класс, представляющий эмоции и их подсчет в тексте.
@@ -234,7 +236,8 @@ public class Emotions {
 
     public static void addCriteria(String word, String emotionType){ // записывает в нужный файл новую строку
         //эта строка будет использоваться в качестве одного из критериев этой эмоции
-        String[] words = new String[500];
+        //String[] words = new String[500];
+        List<String> words = new ArrayList<>();
         String file = "wordshappy.txt";
         System.out.println(file.equals("words" + emotionType + ".txt"));
 
@@ -242,20 +245,17 @@ public class Emotions {
             String line;
             int i = 0;
             while ((line = br.readLine()) != null) {
-                words[i] = line;
+                words.add(line);
                 i++;
             }
-            words[i] = word;
+            words.add(word);
 
         } catch (IOException e) {
             System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-            for(int i = 0; i < words.length; i++){
-                if(words[i] == null){
-                    break;
-                }
-                bw.write(words[i]);
+            for(int i = 0; i < words.size(); i++){
+                bw.write(words.get(i));
                 bw.newLine();
 
             }
