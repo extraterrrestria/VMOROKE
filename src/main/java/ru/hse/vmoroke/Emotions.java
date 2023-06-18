@@ -1,5 +1,7 @@
 package ru.hse.vmoroke;
 
+import java.io.*;
+
 /**
  * Класс, представляющий эмоции и их подсчет в тексте.
  */
@@ -21,7 +23,7 @@ public class Emotions {
      * @return количество вхождений подстроки в строку
      */
     public static int count(String substr, String text){
-        return (text + "\0").split(substr).length - 1;
+        return (text).toLowerCase().split(substr + "*{0,3}\\s").length - 1;
     }
     //  Эта функция выводит количество вхождений строки в подстроку (для того, чтобы легко считать количество слов каждой категории в тексте)
 
@@ -32,10 +34,15 @@ public class Emotions {
      * @return количество слов, связанных с радостью
      */
     public static int counthappy(String txt){
-        String[] happyWords = {"рад","рада","рады","радо","радостный","радостная","радостное","радостный","счастлив", "счастлива","счастливый","счастливая", "счастливое","счастливые","счастье","хороший","хорошая","хорошие","хорошее","приятно", "хорошо"};
+        String file = "wordshappy.txt";
         int res = 0;
-        for(int i = 0; i < happyWords.length; i++){
-            res += count(happyWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -46,10 +53,15 @@ public class Emotions {
      * @return количество слов, связанных с грустью
      */
     public static int countsad(String txt){
-        String[] sadWords = {"грустный","грустная","грустное","грустные","печальный","печальная","печальное","печальные","плохо","очень плохо","плохо","плохой","плохая","плохое","плохие","тоска","тоскливо","тоски","тоску","тосковать","грущу","тоскую","расстраиваюсь","расстроен","расстроена","расстроены"};
+        String file = "wordssad.txt";
         int res = 0;
-        for(int i = 0; i < sadWords.length; i++){
-            res += count(sadWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -60,10 +72,15 @@ public class Emotions {
      * @return количество слов, связанных с удивлением
      */
     public static int countsurprise(String txt){
-        String[] surpriseWords = {"удивлен","удивлена","удивительно","удивлены","удивлённо","сюрприз","неожиданно","неожиданный","нежданно","негаданно","чудесно","чудо","удивление","изумительно","неожиданная","неожиданное","неожиданные","нежданный","нежданная","потрясен","потрясена","потрясены","приятно удивлен","приятно удивлена","удивлен","удивлена","удивления"};
+        String file = "wordssurprise.txt";
         int res = 0;
-        for(int i = 0; i < surpriseWords.length; i++){
-            res += count(surpriseWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -74,10 +91,15 @@ public class Emotions {
      * @return количество слов, связанных с гневом
      */
     public static int countangry(String txt){
-        String[] angryWords = {"зол","зла","злы","злюсь","злится","злятся","зол","зла","зло","ударить","удар","удары","ударом","бить","злюсь","злимся","злобный","злобная","злобное","зловредный","злоба","раздражен","раздражена","токсичный","раздражение","злость"};
+        String file = "wordsangry.txt";
         int res = 0;
-        for(int i = 0; i < angryWords.length; i++){
-            res += count(angryWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -89,10 +111,15 @@ public class Emotions {
      * @return количество слов, связанных с отвращением
      */
     public static int countdisgust(String txt){
-        String[] disgustWords = {"фу","гадость","противно","гадко","неприятно","неприятный","вонючий","вонючая","вонючее","вонючие","неприятный","нериятная","неприятное","неприятные","противные","фу гадость","гадко","противный","противная","противное","противные","противному","противной","неприятно","неприятно"};
+        String file = "wordsdisgust.txt";
         int res = 0;
-        for(int i = 0; i < disgustWords.length; i++){
-            res += count(disgustWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -104,10 +131,15 @@ public class Emotions {
      * @return количество слов, связанных со страхом
      */
     public static int countfear(String txt){
-        String[] fearWords = {"страх","страх","боюсь","боязнь","страшно","страшный","страшная","страшное","страшные","страшных","страхе","пугает","пугающий", "пугающая","пугающее","пугающие","испуг","испугался","испугаться","испугана","испуган","боязно","боязнь","фобия","кошмар"};
+        String file = "wordsfear.txt";
         int res = 0;
-        for(int i = 0; i < fearWords.length; i++){
-            res += count(fearWords[i], txt);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += count(line, txt);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return res;
     }
@@ -117,6 +149,7 @@ public class Emotions {
      * @param txt текст, в котором производится поиск
      * @return количество слов, связанных с безразличием
      */
+
     public int countapathy(String txt){
         int res = 1;
         int spacenumber = count(" ", txt);
@@ -197,6 +230,40 @@ public class Emotions {
         setFear(text);
         setEmotionalLevel();
         setApathy(text);
+    }
+
+    public static void addCriteria(String word, String emotionType){ // записывает в нужный файл новую строку
+        //эта строка будет использоваться в качестве одного из критериев этой эмоции
+        String[] words = new String[500];
+        String file = "wordshappy.txt";
+        System.out.println(file.equals("words" + emotionType + ".txt"));
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            int i = 0;
+            while ((line = br.readLine()) != null) {
+                words[i] = line;
+                i++;
+            }
+            words[i] = word;
+
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            for(int i = 0; i < words.length; i++){
+                if(words[i] == null){
+                    break;
+                }
+                bw.write(words[i]);
+                bw.newLine();
+
+            }
+
+            System.out.println("Запись в файл завершена.");
+        } catch (IOException e) {
+            System.out.println("Ошибка при записи в файл: " + e.getMessage());
+        }
     }
 
 }
