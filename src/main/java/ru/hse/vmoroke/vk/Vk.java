@@ -118,7 +118,7 @@ public class Vk implements HttpRequestHandler {
         List<String> comments = new ArrayList<>();
         for (WallpostFull wallpostFull : getResponseWall.getItems()) {
 
-            if (wallpostFull.getLikes().canPublish()) {
+            if ((wallpostFull.getLikes().canPublish())&&(wallpostFull.getComments().getCount() != 0)) {
                 GetCommentsResponse commentsInPost = vk.wall().getComments(actor).postId(wallpostFull.getId()).execute();
                 for (WallComment wallComment : commentsInPost.getItems()) {
                     if ((wallComment.getFromId().equals(actor.getId())) & (!wallComment.getText().equals(""))) {
@@ -134,7 +134,7 @@ public class Vk implements HttpRequestHandler {
         return comments.toArray(new String[comments.size()]);
     }
 
-    public String[][] getUsersGroups() throws Exception {
+    public String[] getUsersGroups() throws Exception {
         if (actor == null) {
             UserAuthResponse authResponse = vk.oAuth()
                     .userAuthorizationCodeFlow(51630864, "Gw4ctWhvYXMfwbGBmWrQ", redirectURI, code)
@@ -142,7 +142,7 @@ public class Vk implements HttpRequestHandler {
             actor = new UserActor(authResponse.getUserId(), authResponse.getAccessToken());
         }
         GetResponse response = vk.groups().get(actor).execute();
-        List<String[]> groups = new ArrayList<>();
+        List<String> groups = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i : response.getItems()) {
             stringBuilder.append(i).append(",");
@@ -150,12 +150,11 @@ public class Vk implements HttpRequestHandler {
 
         usersGroups = vk.groups().getByIdObjectLegacy(actor).groupIds(stringBuilder.toString()).execute();
         for (GetByIdObjectLegacyResponse i : usersGroups) {
-            String[] a = new String[]{i.getName(), i.getId().toString(), "https://vk.com/" + i.getScreenName()};
-            groups.add(a);
+            groups.add(i.getId().toString());
 
         }
 
-        return groups.toArray(new String[groups.size()][3]);
+        return groups.toArray(new String[groups.size()]);
     }
 
     public String[] getUsersCommentsInGroupsArray(String... usersGroupsId) throws ClientException, ApiException, InterruptedException {

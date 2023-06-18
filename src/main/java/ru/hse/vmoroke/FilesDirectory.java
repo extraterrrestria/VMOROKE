@@ -14,6 +14,7 @@ public class FilesDirectory {
         try {
             new File(path+"\\\\Logins and passwords.txt").createNewFile();
             new File(path+"\\\\Login_Data.txt").createNewFile();
+            new File(path+"\\\\UsersEmotionsData.txt").createNewFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

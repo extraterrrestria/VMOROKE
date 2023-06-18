@@ -1,15 +1,23 @@
 package ru.hse.vmoroke;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import ru.hse.vmoroke.vk.Vk;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static ru.hse.vmoroke.App.mainStage;
+import static ru.hse.vmoroke.App.vk;
 
 
 /**
@@ -32,6 +40,23 @@ public class MainController {
     @FXML
     private Button analytic_exit;
 
+    @FXML
+    private CheckBox vk_comment_check;
+
+    @FXML
+    private CheckBox vk_wall_check;
+
+    @FXML
+    private ScrollPane history;
+
+    public String comments;
+
+    @FXML
+    private FlowPane historyPane;
+
+    @FXML
+    private Tab historyTab;
+
 
 
     /**
@@ -42,10 +67,8 @@ public class MainController {
 
     @FXML
     void onVkButtonClick() throws Exception {
-        System.out.println("1");
-        App.vk = new Vk(App.hostServices, this);
-        App.vk.authenticateStart();
-        System.out.println("2");
+        vk = new Vk(App.hostServices, this);
+        vk.authenticateStart();
     }
     /**
      * Обработчик события нажатия кнопки "Получить комментарии со стены ВКонтакте".
@@ -56,7 +79,35 @@ public class MainController {
 
     @FXML
     void onVkDoWallClick(ActionEvent event) throws Exception {
-        App.vk.processUsersWallComments();
+        if (vk_wall_check.isSelected()){
+            for (String i : vk.processUsersWallComments()){
+                comments += i;
+            }
+        }
+        if (vk_comment_check.isSelected()){
+
+           VkThread vkThread = new VkThread();
+           vkThread.start();
+
+        }
+
+
+
+    }
+
+    private class VkThread extends Thread{
+        @Override
+        public void run(){
+            try {
+                String[] b = vk.getUsersCommentsInGroupsArray(vk.getUsersGroups());
+                for (String i : b){
+                    comments += i;
+                }
+                App.saveEmotions(comments);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     /**
@@ -71,6 +122,20 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = App.mainStage;
         stage.setScene(scene);
+    }
+
+    @FXML
+    void historyLoad(Event event) {
+        ArrayList <String> arrayList = Emotions.getEmotionsFileData();
+        for(String a : arrayList ){
+            String [] b = a.split(";");
+            if (b[0].equals(LoginController.login_base)){
+                Label label = new Label();
+                label.setText(a);
+                historyPane.getChildren().add(label);
+            }
+        }
+
     }
 
 

@@ -1,6 +1,8 @@
 package ru.hse.vmoroke;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class Emotions {
      * @return количество слов, связанных с радостью
      */
     public static int counthappy(String txt){
-        String file = "wordshappy.txt";
+        String file = FilesDirectory.getFileName()+"wordshappy.txt";
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -55,7 +57,7 @@ public class Emotions {
      * @return количество слов, связанных с грустью
      */
     public static int countsad(String txt){
-        String file = "wordssad.txt";
+        String file = FilesDirectory.getFileName()+"wordssad.txt";
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -74,7 +76,7 @@ public class Emotions {
      * @return количество слов, связанных с удивлением
      */
     public static int countsurprise(String txt){
-        String file = "wordssurprise.txt";
+        String file = FilesDirectory.getFileName()+"wordssurprise.txt";
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -93,7 +95,7 @@ public class Emotions {
      * @return количество слов, связанных с гневом
      */
     public static int countangry(String txt){
-        String file = "wordsangry.txt";
+        String file = FilesDirectory.getFileName()+"wordsangry.txt" ;
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -113,7 +115,7 @@ public class Emotions {
      * @return количество слов, связанных с отвращением
      */
     public static int countdisgust(String txt){
-        String file = "wordsdisgust.txt";
+        String file = FilesDirectory.getFileName()+"wordsdisgust.txt";
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -133,7 +135,7 @@ public class Emotions {
      * @return количество слов, связанных со страхом
      */
     public static int countfear(String txt){
-        String file = "wordsfear.txt";
+        String file = FilesDirectory.getFileName()+"wordsfear.txt";
         int res = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -238,8 +240,7 @@ public class Emotions {
         //эта строка будет использоваться в качестве одного из критериев этой эмоции
         //String[] words = new String[500];
         List<String> words = new ArrayList<>();
-        String file = "wordshappy.txt";
-        System.out.println(file.equals("words" + emotionType + ".txt"));
+        String file = FilesDirectory.getFileName()+"words" + emotionType + ".txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -264,6 +265,18 @@ public class Emotions {
         } catch (IOException e) {
             System.out.println("Ошибка при записи в файл: " + e.getMessage());
         }
+    }
+    public static ArrayList <String> getEmotionsFileData (){
+        ArrayList <String> emotionRates = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(FilesDirectory.getFileName() + "UsersEmotionsData.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                emotionRates.add(line);
+            }
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+        return emotionRates;
     }
 
 }

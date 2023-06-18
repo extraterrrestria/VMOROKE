@@ -8,6 +8,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ru.hse.vmoroke.vk.Vk;
 
+import java.io.*;
+import java.util.ArrayList;
+
 /**
  * Основной класс приложения Vmoroke.
  */
@@ -72,8 +75,22 @@ public class App extends Application {
         if(result.fear == highest){return "Этот пользователь напуган";}
 
         return "Этот пользователь в эмоциональном раздрае";
-        // ветвить можно очень много под разные вариации, главное - показать, что какой-то вердикт мы можем вынести
-        // доработать надо, конечно
+
+    }
+    public static void saveEmotions (String comments) throws IOException {
+        Emotions emotions = new Emotions();
+        emotions.setAll(comments);
+        String results = LoginController.login_base + ";" + Integer.toString(emotions.emotionalLevel) + ";" +
+                Integer.toString(emotions.happy) + ";"+ Integer.toString(emotions.sad) + ";"+ Integer.toString(emotions.surprise)+ ";" +
+                Integer.toString(emotions.angry)+ ";" + Integer.toString(emotions.disgust)+ ";" + Integer.toString(emotions.fear) + ";" + Integer.toString(emotions.apathy);
+        ArrayList <String> emotionRates = emotions.getEmotionsFileData();
+        emotionRates.add(results);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FilesDirectory.getFileName() + "UsersEmotionsData.txt"));
+            for (String i : emotionRates) {
+                writer.write(i);
+                writer.newLine();
+            }
+
     }
 
 
@@ -99,8 +116,8 @@ public class App extends Application {
      * @param args аргументы командной строки
      */
     public static void main(String[] args) {
-    System.out.println(verdict("я молодец, что сделал это задание"));
-    launch();
+        launch();
+
     }
     @Override
     public void stop(){
@@ -108,5 +125,7 @@ public class App extends Application {
             vk.stopServer();
         }
         }
+
+
 
 }
