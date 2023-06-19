@@ -85,13 +85,15 @@ public class App extends Application {
                 Integer.toString(emotions.angry)+ ";" + Integer.toString(emotions.disgust)+ ";" + Integer.toString(emotions.fear) + ";" + Integer.toString(emotions.apathy);
         ArrayList <String> emotionRates = emotions.getEmotionsFileData();
         emotionRates.add(results);
-        BufferedWriter writer = new BufferedWriter(new FileWriter(FilesDirectory.getFileName() + "UsersEmotionsData.txt"));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FilesDirectory.getFileName() + "UsersEmotionsData.txt"))) {
             for (String i : emotionRates) {
                 writer.write(i);
                 writer.newLine();
             }
+        }catch (IOException exc) {
 
-    }
+            }
+        }
 
 
 

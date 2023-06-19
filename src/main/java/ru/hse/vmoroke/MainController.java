@@ -90,7 +90,7 @@ public class MainController {
            vkThread.start();
 
         }
-
+        App.saveEmotions(comments);
 
 
     }

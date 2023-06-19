@@ -147,7 +147,7 @@ public class Vk implements HttpRequestHandler {
         for (int i : response.getItems()) {
             stringBuilder.append(i).append(",");
         }
-
+        Thread.sleep(333);
         usersGroups = vk.groups().getByIdObjectLegacy(actor).groupIds(stringBuilder.toString()).execute();
         for (GetByIdObjectLegacyResponse i : usersGroups) {
             groups.add(i.getId().toString());
@@ -162,6 +162,7 @@ public class Vk implements HttpRequestHandler {
         for (String groupId : usersGroupsId) {
             for (GetByIdObjectLegacyResponse usersGroup : this.usersGroups) {
                 if (groupId.equals(usersGroup.getId().toString())) {
+                    Thread.sleep(333);
                     com.vk.api.sdk.objects.wall.responses.GetResponse response = vk.wall().get(actor).unsafeParam("owner_id", -usersGroup.getId()).execute();
                     for (WallpostFull wallpostFull : response.getItems()) {
                         if (wallpostFull.getLikes().canPublish()) {
