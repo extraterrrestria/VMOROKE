@@ -113,15 +113,16 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="historyTab" onSelectionChanged="#historyLoad" style="-fx-background-radius: 7; -fx-focus-color: transparent;" text="История">
+                        <Tab fx:id="historyTab" style="-fx-background-radius: 7; -fx-focus-color: transparent;" text="История">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ScrollPane fx:id="history" layoutX="17.0" layoutY="19.0" prefHeight="411.0" prefWidth="395.0">
+                              <ScrollPane fx:id="history" layoutX="17.0" layoutY="82.0" prefHeight="348.0" prefWidth="395.0">
                                  <content>
-                                    <FlowPane fx:id="historyPane" prefHeight="394.0" prefWidth="393.0" />
+                                    <FlowPane fx:id="historyPane" prefHeight="345.0" prefWidth="393.0" />
                                  </content>
                               </ScrollPane>
+                              <Button layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#historyLoad" prefHeight="25.0" prefWidth="193.0" text="Загрузить историю обращений" />
                            </children>
                                 </AnchorPane>
                             </content>

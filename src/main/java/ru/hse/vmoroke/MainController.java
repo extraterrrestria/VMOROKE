@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static ru.hse.vmoroke.App.mainStage;
@@ -79,19 +80,9 @@ public class MainController {
 
     @FXML
     void onVkDoWallClick(ActionEvent event) throws Exception {
-        if (vk_wall_check.isSelected()){
-            for (String i : vk.processUsersWallComments()){
-                comments += i;
-            }
-        }
-        if (vk_comment_check.isSelected()){
-
-           VkThread vkThread = new VkThread();
-           vkThread.start();
-
-        }
-        App.saveEmotions(comments);
-
+       comments = "";
+       VkThread vkThread = new VkThread();
+       vkThread.start();
 
     }
 
@@ -99,10 +90,19 @@ public class MainController {
         @Override
         public void run(){
             try {
-                String[] b = vk.getUsersCommentsInGroupsArray(vk.getUsersGroups());
-                for (String i : b){
-                    comments += i;
+                if (vk_wall_check.isSelected()){
+                    for (String i : vk.processUsersWallComments()){
+                        comments += i;
+                    }
                 }
+                if (vk_comment_check.isSelected()){
+                    String [] c = Arrays.copyOfRange(vk.getUsersGroups(), 0, 2);
+                    String[] b = vk.getUsersCommentsInGroupsArray(c);
+                    for (String i : b){
+                        comments += i;
+                    }
+                }
+
                 App.saveEmotions(comments);
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -126,6 +126,7 @@ public class MainController {
 
     @FXML
     void historyLoad(Event event) {
+        historyPane.getChildren().clear();
         ArrayList <String> arrayList = Emotions.getEmotionsFileData();
         for(String a : arrayList ){
             String [] b = a.split(";");
