@@ -1,23 +1,26 @@
 package ru.hse.vmoroke;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ru.hse.vmoroke.vk.Vk;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.ResourceBundle;
 
-import static ru.hse.vmoroke.App.mainStage;
 import static ru.hse.vmoroke.App.vk;
 
 
@@ -27,7 +30,7 @@ import static ru.hse.vmoroke.App.vk;
  * @author user
  */
 
-public class MainController {
+public class MainController implements Initializable {
     @FXML
     public Button vkAuthButton;
 
@@ -53,7 +56,7 @@ public class MainController {
     public String comments;
 
     @FXML
-    private FlowPane historyPane;
+    private VBox historyPane;
 
     @FXML
     private Tab historyTab;
@@ -70,6 +73,7 @@ public class MainController {
     void onVkButtonClick() throws Exception {
         vk = new Vk(App.hostServices, this);
         vk.authenticateStart();
+        vkWallButton.setDisable(false);
     }
     /**
      * Обработчик события нажатия кнопки "Получить комментарии со стены ВКонтакте".
@@ -125,18 +129,39 @@ public class MainController {
     }
 
     @FXML
-    void historyLoad(Event event) {
+    void historyLoad(Event event) throws IOException {
         historyPane.getChildren().clear();
         ArrayList <String> arrayList = Emotions.getEmotionsFileData();
         for(String a : arrayList ){
             String [] b = a.split(";");
             if (b[0].equals(LoginController.login_base)){
-                Label label = new Label();
-                label.setText(a);
-                historyPane.getChildren().add(label);
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("pieChart.fxml"));
+
+                HBox newHBox = (HBox)loader.load();
+                ChartController chart = loader.getController();
+                chart.time.setText(b[b.length -1]);
+                ObservableList<PieChart.Data> pieChartData =
+                        FXCollections.observableArrayList(
+                                new PieChart.Data("happy", Integer.parseInt(b[2])),
+                                new PieChart.Data("sad", Integer.parseInt(b[3])),
+                                new PieChart.Data("surprise", Integer.parseInt(b[4])),
+                                new PieChart.Data("angry", Integer.parseInt(b[5])),
+                                new PieChart.Data("disgust", Integer.parseInt(b[6])), new PieChart.Data("fear", Integer.parseInt(b[7])),new PieChart.Data("apathy", Integer.parseInt(b[8])));
+
+                chart.pieChart.setData(pieChartData);
+                historyPane.getChildren().add(newHBox);
+
+//                cardController.setCardParameters(card.getCard(), this, newPane);
+//
+//                deskAttackCardPane.add(newPane, deskAttackCardPane.getChildren().size(), 0);
             }
         }
 
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        vkWallButton.setDisable(true);
     }
 
 

@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 import ru.hse.vmoroke.vk.Vk;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Основной класс приложения Vmoroke.
@@ -82,7 +84,7 @@ public class App extends Application {
         emotions.setAll(comments);
         String results = LoginController.login_base + ";" + Integer.toString(emotions.emotionalLevel) + ";" +
                 Integer.toString(emotions.happy) + ";"+ Integer.toString(emotions.sad) + ";"+ Integer.toString(emotions.surprise)+ ";" +
-                Integer.toString(emotions.angry)+ ";" + Integer.toString(emotions.disgust)+ ";" + Integer.toString(emotions.fear) + ";" + Integer.toString(emotions.apathy);
+                Integer.toString(emotions.angry)+ ";" + Integer.toString(emotions.disgust)+ ";" + Integer.toString(emotions.fear) + ";" + Integer.toString(emotions.apathy) + ";" + returnDate();
         ArrayList <String> emotionRates = emotions.getEmotionsFileData();
         emotionRates.add(results);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FilesDirectory.getFileName() + "UsersEmotionsData.txt"))) {
@@ -93,6 +95,12 @@ public class App extends Application {
         }catch (IOException exc) {
 
             }
+        }
+
+        public static String returnDate(){
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            return formatter.format(date);
         }
 
 
