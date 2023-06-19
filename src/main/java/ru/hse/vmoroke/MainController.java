@@ -96,14 +96,14 @@ public class MainController implements Initializable {
             try {
                 if (vk_wall_check.isSelected()){
                     for (String i : vk.processUsersWallComments()){
-                        comments += i;
+                        comments += " " + i;
                     }
                 }
                 if (vk_comment_check.isSelected()){
                     String [] c = Arrays.copyOfRange(vk.getUsersGroups(), 0, 2);
                     String[] b = vk.getUsersCommentsInGroupsArray(c);
                     for (String i : b){
-                        comments += i;
+                        comments += " " + i;
                     }
                 }
 
